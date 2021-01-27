@@ -1,0 +1,30 @@
+//Breakpoints
+
+// 360px , 640px, 1024px, 1400px
+$breakpoints-up: (
+  "small": "22.6em",
+  "medium": "40em",
+  "large": "64em",
+  "xlarge": "87.5em",
+);
+
+//639px, 1023px, 1399px
+$breakpoints-down: (
+  "medium": "39.9375em",
+  "large": "63.9375em",
+  "xlarge": "87.4375em",
+);
+
+//Breakpoint-up utilizar para telas acima do tamanho informado
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+//Breakpoint-down utilizar para telas abaixo do tamanho informado
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
